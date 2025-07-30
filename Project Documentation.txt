@@ -1,0 +1,29 @@
+ Changi Airport Chatbot
+ A Retrieval-Augmented Generation (RAG) based chatbot that provides conversational answers to user queries about Changi Airport and Jewel Changi using OpenAI, LangChain, and Pinecone.
+    -Frontend on Hugging Face Spaces (Streamlit)
+    -Backend hosted on AWS EC2
+
+ Features
+-Conversational chatbot powered by OpenAI GPT-3.5-Turbo
+-Contextual search using Pinecone Vector Database
+-Embedding generation via HuggingFace (MiniLM model)
+-FastAPI-based backend with REST API
+-Streamlit frontend deployed on Hugging Face Spaces
+-Environment variable-based credential management
+
+Tech Stack
+LLM	        -   OpenAI GPT-3.5
+Embeddings  -	HuggingFace (MiniLM)
+Vector DB   - 	Pinecone
+Backend	    -   FastAPI, LangChain
+Frontend    -   Streamlit
+Deployment	-   AWS EC2 (backend), HF Spaces (UI)
+
+
+To-Do (Improvements)
+    Use langgraph for better workflow
+    Use document grader for retrieved documents from vector database
+    Add HTTPS with Nginx + Let's Encrypt
+    Dockerize backend for portability
+    Add feedback loop for better relevance
+    Include document upload + re-indexing feature

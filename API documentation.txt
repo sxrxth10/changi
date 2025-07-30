@@ -1,0 +1,45 @@
+BASE URL http://65.0.97.155:8000
+
+Post/chat
+
+📄 Description:
+Ask a question related to Changi Airport.
+This endpoint uses a Retrieval-Augmented Generation (RAG) pipeline backed by Pinecone and OpenAI.
+
+Request Body (JSON)
+{
+  "query": "What are the shops available at Terminal 3?"
+}
+
+Sample Request
+response = requests.post(
+            "http://65.0.97.155:8000/chat",  
+            json={"query": user_input}
+        )
+
+✅ Success Response:
+Code: 200 OK
+Content:
+{
+  "response": "You can find a variety of shops including luxury brands, electronics, and souvenirs in Terminal 3.",
+  "sources": [
+    "https://www.changiairport.com/en/maps.html",
+    "https://www.jewelchangiairport.com/en/dine.html"
+  ]
+}
+
+🛠️ Example curl Request:
+curl -X POST http://<YOUR-EC2-IP>:8000/chat \
+  -H "Content-Type: application/json" \
+  -d '{"query": "Where is Terminal 1?"}'
+
+
+🧪 Test it in browser:
+Once running, you can also access the interactive Swagger UI at:http://<YOUR-EC2-IP>:8000/docs
+
+🛡️ Notes
+CORS is enabled for all origins (allow_origins=["*"]) so frontend (e.g., Hugging Face Spaces) can connect.
+
+.env file should contain:
+OPENAI_API_KEY=your_openai_key
+PINECONE_API_KEY=your_pinecone_key
